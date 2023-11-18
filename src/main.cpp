@@ -1,11 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/*                                                                            */
-/*    Module:       main.cpp                                                  */
-/*    Author:       zmedendorp                                                */
-/*    Created:      10/23/2023, 4:49:45 PM                                    */
-/*    Description:  V5 project                                                */
-/*                                                                            */
-/*----------------------------------------------------------------------------*/
 
 #include "vex.h"
 
@@ -44,9 +36,10 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  // ..........................................................................
-  // Insert autonomous user code here.
-  // ..........................................................................
+  autonDrive(3000);
+  Drivetrain.turnToHeading(90,vex::rotation::angle::degrees);
+  autonDrive(1000);
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -58,6 +51,7 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
+
 void initMotors(){
   LeftDriveSmart.setVelocity(0,vex::pct);
   LeftDriveSmart.spin(forward);
@@ -70,9 +64,12 @@ void initMotors(){
 
   rightGrabMotor.setVelocity(0,vex::pct);
   rightGrabMotor.spin(forward);
+
+  RightDriveSmart.resetPosition();
+  LeftDriveSmart.resetPosition();
 }
 
-void drive(){
+void teleDrive(){
   LeftDriveSmart.setVelocity(Controller1.Axis3.position(vex::pct),vex::pct);
   RightDriveSmart.setVelocity(Controller1.Axis2.position(vex::pct),vex::pct);
 }
@@ -91,6 +88,34 @@ void grab(){
   }
 }
 
+//-----------------custom auton drive----------------------------------------------
+
+
+// float position = 0;
+
+// /*****/ float wheel_radius = 0.05; // need to measure and change, consider gear ratios
+// /*****/ int ticks; // number of ticks from encoder
+
+// int distance = 50; // target distance is in m
+
+float vel = 50;
+
+void autonDrive(int milliseconds){
+  timer.reset();
+  while(timer.milliseconds() <= milliseconds){
+    LeftDriveSmart.setVelocity(vel,vex::pct);
+    RightDriveSmart.setVelocity(vel,vex::pct);
+  }
+
+  LeftDriveSmart.setVelocity(0,vex::pct);
+  RightDriveSmart.setVelocity(0,vex::pct);
+
+}
+
+
+//----------------------------------------------------------------------------------
+
+
 void usercontrol(void) {
   // User control code here, inside the loop
   initMotors();
@@ -105,7 +130,7 @@ void usercontrol(void) {
     // update your motors, etc.
     // ........................................................................
     
-    drive();
+    teleDrive();
     grab();
 
     wait(20, msec); // Sleep the task for a short amount of time to
