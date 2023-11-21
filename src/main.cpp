@@ -23,6 +23,7 @@ void pre_auton(void) {
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
   vexcodeInit();
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -36,9 +37,12 @@ void pre_auton(void) {
 /*---------------------------------------------------------------------------*/
 
 void autonomous(void) {
-  autonDrive(3000);
-  Drivetrain.turnToHeading(90,vex::rotation::angle::degrees);
-  autonDrive(1000);
+  
+  
+  Drivetrain.setDriveVelocity(100,vex::velocityUnits::pct);
+  Drivetrain.driveFor(1000, vex::distanceUnits::mm,true);
+  wait(3000,msec);
+  Drivetrain.turnToHeading(90,vex::rotationUnits::deg,true);
 
 }
 
@@ -100,15 +104,18 @@ void grab(){
 
 float vel = 50;
 
-void autonDrive(int milliseconds){
-  timer.reset();
-  while(timer.milliseconds() <= milliseconds){
-    LeftDriveSmart.setVelocity(vel,vex::pct);
-    RightDriveSmart.setVelocity(vel,vex::pct);
-  }
+// void vex::timer::reset();
 
-  LeftDriveSmart.setVelocity(0,vex::pct);
-  RightDriveSmart.setVelocity(0,vex::pct);
+void autonDrive(){
+
+  // Brain.Timer;
+  // while(Brain.Timer. <= milliseconds){
+  //   LeftDriveSmart.setVelocity(vel,vex::pct);
+  //   RightDriveSmart.setVelocity(vel,vex::pct);
+  // }
+
+  // LeftDriveSmart.setVelocity(0,vex::pct);
+  // RightDriveSmart.setVelocity(0,vex::pct);
 
 }
 
@@ -149,7 +156,7 @@ int main() {
 
   // Run the pre-autonomous function.
   pre_auton();
-
+  initMotors();
   // Prevent main from exiting with an infinite loop.
   while (true) {
     wait(100, msec);
