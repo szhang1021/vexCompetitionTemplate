@@ -39,10 +39,34 @@ void pre_auton(void) {
 void autonomous(void) {
   
   
-  Drivetrain.setDriveVelocity(100,vex::velocityUnits::pct);
-  Drivetrain.driveFor(1000, vex::distanceUnits::mm,true);
-  wait(3000,msec);
+  Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
+  Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
+  wait(1000,msec);
+  Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+  wait(1000,msec);
+  //push ball in
+    Drivetrain.setDriveVelocity(-50,vex::velocityUnits::pct);
+    Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+    wait(1000,sec);
   Drivetrain.turnToHeading(90,vex::rotationUnits::deg,true);
+  wait(1000,msec);
+  Drivetrain.setDriveVelocity(130,vex::velocityUnits::pct);
+  wait(1000,msec);
+  //screw up other teams
+  Drivetrain.turnToHeading(-90,vex::rotationUnits::deg,true);
+  wait(1000,msec);
+  Drivetrain.driveFor(50, vex::distanceUnits::cm,true);
+  wait(1000,msec);
+  //park
+  Drivetrain.setDriveVelocity(-50,vex::velocityUnits::pct);
+  Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
+  wait(1000,sec);
+  Drivetrain.turnToHeading(-90,vex::rotationUnits::deg,true);
+  wait(1000,msec);
+  Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
+  wait(1000,msec);
+  Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
+  Drivetrain.setDriveVelocity(0,vex::velocityUnits::pct);
 
 }
 
