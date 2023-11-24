@@ -23,35 +23,85 @@ void pre_auton(void) {
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
   vexcodeInit();
-
 }
 
 /*---------------------------------------------------------------------------*/
-/*                                                                           */
 /*                              Autonomous Task                              */
-/*                                                                           */
-/*  This task is used to control your robot during the autonomous phase of   */
-/*  a VEX Competition.                                                       */
-/*                                                                           */
-/*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
+
+
 void autonomous(void) {
-  
+
+
+
+  /*---------------------------------------------------------------------------*/
+  /*                        Offensive Zone(left)                               */
+  /*---------------------------------------------------------------------------*/
   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
   Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
-  spit();
-  Drivetrain.driveFor(60, vex::distanceUnits::cm,true);
 
-  // wait(500,msec);
-  // Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+  
+  Drivetrain.driveFor(120, vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(90,vex::rotationUnits::deg);
+  Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+
+  wait(500,msec);
+  //spit
+    leftGrabMotor.setVelocity(-50,vex::pct);
+    rightGrabMotor.setVelocity(-50,vex::pct);
+    wait(1000,msec);
+    Drivetrain.driveFor(5,vex::distanceUnits::cm,true);
+    leftGrabMotor.setVelocity(0,vex::pct);
+    rightGrabMotor.setVelocity(0,vex::pct);
+
+  Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(180,vex::rotationUnits::deg);
+  wait(1000,msec);
+  // Drivetrain.driveFor(30, vex::distanceUnits::cm,true);
+
+  // Brain.Screen.print("Dropped off");
+  // //collect
+  //   leftGrabMotor.setVelocity(50,vex::pct);
+  //   rightGrabMotor.setVelocity(50,vex::pct);
+  //   Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+  //   wait(1000,msec);
+  
+  // Drivetrain.turnFor(180,vex::rotationUnits::deg);
+  // wait(1000,msec);
+  // Drivetrain.driveFor(40,vex::distanceUnits::cm,true);
+
+
+  // //spit
+  //   leftGrabMotor.setVelocity(-50,vex::pct);
+  //   rightGrabMotor.setVelocity(-50,vex::pct);
+  //   wait(3000,msec);
+  //   Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+  //   leftGrabMotor.setVelocity(0,vex::pct);
+  //   rightGrabMotor.setVelocity(0,vex::pct);
+
+  //Drivetrain.setDriveVelocity(-50,vex::pct);
+  Drivetrain.driveFor(reverse,10,vex::distanceUnits::cm,true);
+
+  Drivetrain.setDriveVelocity(50,vex::pct);
+  Drivetrain.turnFor(-90,vex::rotationUnits::deg);
+  Drivetrain.driveFor(70,vex::distanceUnits::cm,true);
+
   // Drivetrain.driveFor(-10, vex::distanceUnits::cm,true);
   // Drivetrain.turnFor(90,vex::rotationUnits::deg);
 
-  // Drivetrain.driveFor(80, vex::distanceUnits::cm);
+  // Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
   // Drivetrain.turnFor(-90,vex::rotationUnits::deg);
-  // Drivetrain.driveFor(50, vex::distanceUnits::cm);
-  // Drivetrain.driveFor(80, vex::distanceUnits::cm);
+  // Drivetrain.driveFor(50, vex::distanceUnits::cm,true);
+  // Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
+
+  /*---------------------------------------------------------------------------*/
+  /*                        Defensive Zone(right)                              */
+  /*---------------------------------------------------------------------------*/
+
+
+
+
 
 
 
@@ -78,17 +128,6 @@ wait(3000,msec);
   Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
   Drivetrain.setDriveVelocity(0,vex::velocityUnits::pct);
 */
-}
-
-void spit(){
-    leftGrabMotor.setVelocity(50,vex::pct);
-    rightGrabMotor.setVelocity(50,vex::pct);
-    wait(500,msec);
-    leftGrabMotor.setVelocity(-50,vex::pct);
-    rightGrabMotor.setVelocity(-50,vex::pct);
-    wait(500,msec);
-    leftGrabMotor.setVelocity(0,vex::pct);
-    rightGrabMotor.setVelocity(0,vex::pct);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -137,31 +176,40 @@ void grab(){
   }
 }
 
-//-----------------custom auton drive----------------------------------------------
+void test(){
+  /*---------------------------------------------------------------------------*/
+  /*                        Offensive Zone(left)                               */
+  /*---------------------------------------------------------------------------*/
+  Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
+  Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
+
+  
+  Drivetrain.driveFor(170, vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(90, vex::rotationUnits::deg,true);
+  Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
+  Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+
+  wait(500,msec);
+  //spit
+  leftGrabMotor.setVelocity(-50,vex::pct);
+  rightGrabMotor.setVelocity(-50,vex::pct);
+  wait(1500,msec);
+  Drivetrain.driveFor(5,vex::distanceUnits::cm,true);
+  leftGrabMotor.setVelocity(0,vex::pct);
+  rightGrabMotor.setVelocity(0,vex::pct);
 
 
-// float position = 0;
+  Drivetrain.driveFor(-10, vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(180,vex::rotationUnits::deg);
+  wait(1000,msec);
 
-// /*****/ float wheel_radius = 0.05; // need to measure and change, consider gear ratios
-// /*****/ int ticks; // number of ticks from encoder
-
-// int distance = 50; // target distance is in m
-
-float vel = 50;
-
-// void vex::timer::reset();
-
-void autonDrive(){
-
-  // Brain.Timer;
-  // while(Brain.Timer. <= milliseconds){
-  //   LeftDriveSmart.setVelocity(vel,vex::pct);
-  //   RightDriveSmart.setVelocity(vel,vex::pct);
-  // }
-
-  // LeftDriveSmart.setVelocity(0,vex::pct);
-  // RightDriveSmart.setVelocity(0,vex::pct);
-
+  // Drivetrain.driveFor(reverse,10,vex::distanceUnits::cm,true);
+  // wait(1000,msec);
+  Drivetrain.setDriveVelocity(100,vex::pct);
+  Drivetrain.driveFor(-15,vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(-90,vex::rotationUnits::deg);
+  Drivetrain.setDriveVelocity(50,vex::pct);
+  Drivetrain.driveFor(100,vex::distanceUnits::cm,true);
 }
 
 
@@ -171,7 +219,7 @@ void autonDrive(){
 void usercontrol(void) {
   // User control code here, inside the loop
   initMotors();
-
+  test();
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -181,7 +229,7 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // ........................................................................
-    
+
     teleDrive();
     grab();
 
@@ -197,7 +245,7 @@ int main() {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
-
+  
 
   // Run the pre-autonomous function.
   pre_auton();
@@ -207,3 +255,7 @@ int main() {
     wait(100, msec);
   }
 }
+
+
+
+
