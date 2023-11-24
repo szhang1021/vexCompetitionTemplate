@@ -38,22 +38,32 @@ void pre_auton(void) {
 
 void autonomous(void) {
   
-  
   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
-  Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
-  wait(1000,msec);
-  Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
-  wait(1000,msec);
-  //push ball in
-    Drivetrain.setDriveVelocity(-50,vex::velocityUnits::pct);
-    Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
-    wait(1000,sec);
-  Drivetrain.turnToHeading(90,vex::rotationUnits::deg,true);
-  wait(1000,msec);
-  Drivetrain.setDriveVelocity(130,vex::velocityUnits::pct);
+  Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
+  spit();
+  Drivetrain.driveFor(60, vex::distanceUnits::cm,true);
+
+  // wait(500,msec);
+  // Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+  // Drivetrain.driveFor(-10, vex::distanceUnits::cm,true);
+  // Drivetrain.turnFor(90,vex::rotationUnits::deg);
+
+  // Drivetrain.driveFor(80, vex::distanceUnits::cm);
+  // Drivetrain.turnFor(-90,vex::rotationUnits::deg);
+  // Drivetrain.driveFor(50, vex::distanceUnits::cm);
+  // Drivetrain.driveFor(80, vex::distanceUnits::cm);
+
+
+
+wait(3000,msec);
+
+
+/*
+
+  
   wait(1000,msec);
   //screw up other teams
-  Drivetrain.turnToHeading(-90,vex::rotationUnits::deg,true);
+  Drivetrain.turnFor(90,vex::rotationUnits::deg);
   wait(1000,msec);
   Drivetrain.driveFor(50, vex::distanceUnits::cm,true);
   wait(1000,msec);
@@ -61,13 +71,24 @@ void autonomous(void) {
   Drivetrain.setDriveVelocity(-50,vex::velocityUnits::pct);
   Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
   wait(1000,sec);
-  Drivetrain.turnToHeading(-90,vex::rotationUnits::deg,true);
+  Drivetrain.turnFor(-90,vex::rotationUnits::deg);
   wait(1000,msec);
   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
   wait(1000,msec);
   Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
   Drivetrain.setDriveVelocity(0,vex::velocityUnits::pct);
+*/
+}
 
+void spit(){
+    leftGrabMotor.setVelocity(50,vex::pct);
+    rightGrabMotor.setVelocity(50,vex::pct);
+    wait(500,msec);
+    leftGrabMotor.setVelocity(-50,vex::pct);
+    rightGrabMotor.setVelocity(-50,vex::pct);
+    wait(500,msec);
+    leftGrabMotor.setVelocity(0,vex::pct);
+    rightGrabMotor.setVelocity(0,vex::pct);
 }
 
 /*---------------------------------------------------------------------------*/
