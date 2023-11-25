@@ -35,11 +35,11 @@ void autonomous(void) {
   /*---------------------------------------------------------------------------*/
   /*                        Offensive Zone(left)                               */
   /*---------------------------------------------------------------------------*/
-  Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
+  Drivetrain.setDriveVelocity(60,vex::velocityUnits::pct);
   Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
 
   
-  Drivetrain.driveFor(170, vex::distanceUnits::cm,true);
+  Drivetrain.driveFor(130, vex::distanceUnits::cm,true);
   Drivetrain.turnFor(90, vex::rotationUnits::deg,true);
   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
   Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
@@ -54,82 +54,58 @@ void autonomous(void) {
     rightGrabMotor.setVelocity(0,vex::pct);
 
 
-  Drivetrain.driveFor(-10, vex::distanceUnits::cm,true);
+  Drivetrain.driveFor(-15, vex::distanceUnits::cm,true);
   Drivetrain.turnFor(180,vex::rotationUnits::deg);
-  wait(1000,msec);
+  Drivetrain.driveFor(-15, vex::distanceUnits::cm,true);
 
   // Drivetrain.driveFor(reverse,10,vex::distanceUnits::cm,true);
   // wait(1000,msec);
-  Drivetrain.setDriveVelocity(100,vex::pct);
-  Drivetrain.driveFor(-15,vex::distanceUnits::cm,true);
+  Drivetrain.driveFor(10,vex::distanceUnits::cm,true);
   Drivetrain.turnFor(-90,vex::rotationUnits::deg);
-  Drivetrain.setDriveVelocity(50,vex::pct);
-  Drivetrain.driveFor(100,vex::distanceUnits::cm,true);
+  Drivetrain.driveFor(130,vex::distanceUnits::cm,true);
 
   //park
   Drivetrain.turnFor(90,vex::rotationUnits::deg);
-  Drivetrain.driveFor(30,vex::distanceUnits::cm,true);
+  Drivetrain.setDriveVelocity(100,vex::pct);
+  Drivetrain.driveFor(60,vex::distanceUnits::cm,true);
 
 //   /*---------------------------------------------------------------------------*/
 //   /*                        Defensive Zone(right)                              */
 //   /*---------------------------------------------------------------------------*/
-//   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
-//   Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
-
-  
-//   Drivetrain.driveFor(170, vex::distanceUnits::cm,true);
-//   Drivetrain.turnFor(-90, vex::rotationUnits::deg,true);
-//   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
-//   Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
-
-//   wait(500,msec);
-//   //spit
-//   leftGrabMotor.setVelocity(-50,vex::pct);
-//   rightGrabMotor.setVelocity(-50,vex::pct);
-//   wait(1500,msec);
-//   Drivetrain.driveFor(5,vex::distanceUnits::cm,true);
-//   leftGrabMotor.setVelocity(0,vex::pct);
-//   rightGrabMotor.setVelocity(0,vex::pct);
-
-
-//   Drivetrain.driveFor(-10, vex::distanceUnits::cm,true);
-//   Drivetrain.turnFor(-180,vex::rotationUnits::deg);
-//   wait(1000,msec);
-
-//   // Drivetrain.driveFor(reverse,10,vex::distanceUnits::cm,true);
-//   // wait(1000,msec);
-//   Drivetrain.setDriveVelocity(100,vex::pct);
-//   Drivetrain.driveFor(-15,vex::distanceUnits::cm,true);
-//   Drivetrain.turnFor(90,vex::rotationUnits::deg);
-//   Drivetrain.setDriveVelocity(50,vex::pct);
-//   Drivetrain.driveFor(100,vex::distanceUnits::cm,true);
-
-//   //park
-//   Drivetrain.turnFor(90,vex::rotationUnits::deg);
-//   Drivetrain.driveFor(30,vex::distanceUnits::cm,true);
-
-// wait(3000,msec);
-
-
 /*
+  Drivetrain.setDriveVelocity(60,vex::velocityUnits::pct);
+  Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
 
   
-  wait(1000,msec);
-  //screw up other teams
-  Drivetrain.turnFor(90,vex::rotationUnits::deg);
-  wait(1000,msec);
-  Drivetrain.driveFor(50, vex::distanceUnits::cm,true);
-  wait(1000,msec);
-  //park
-  Drivetrain.setDriveVelocity(-50,vex::velocityUnits::pct);
-  Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
-  wait(1000,sec);
-  Drivetrain.turnFor(-90,vex::rotationUnits::deg);
-  wait(1000,msec);
+  Drivetrain.driveFor(130, vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(90, vex::rotationUnits::deg,true);
   Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
-  wait(1000,msec);
-  Drivetrain.driveFor(80, vex::distanceUnits::cm,true);
-  Drivetrain.setDriveVelocity(0,vex::velocityUnits::pct);
+  Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+
+  wait(500,msec);
+  //spit
+    leftGrabMotor.setVelocity(-50,vex::pct);
+    rightGrabMotor.setVelocity(-50,vex::pct);
+    wait(1500,msec);
+    Drivetrain.driveFor(5,vex::distanceUnits::cm,true);
+    leftGrabMotor.setVelocity(0,vex::pct);
+    rightGrabMotor.setVelocity(0,vex::pct);
+
+
+  Drivetrain.driveFor(-15, vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(180,vex::rotationUnits::deg);
+  Drivetrain.driveFor(-15, vex::distanceUnits::cm,true);
+
+  // Drivetrain.driveFor(reverse,10,vex::distanceUnits::cm,true);
+  // wait(1000,msec);
+  Drivetrain.driveFor(10,vex::distanceUnits::cm,true);
+  Drivetrain.turnFor(-90,vex::rotationUnits::deg);
+  Drivetrain.driveFor(130,vex::distanceUnits::cm,true);
+
+  //park
+  Drivetrain.turnFor(90,vex::rotationUnits::deg);
+  Drivetrain.setDriveVelocity(100,vex::pct);
+  Drivetrain.driveFor(60,vex::distanceUnits::cm,true);
 */
 }
 
