@@ -32,6 +32,21 @@ void pre_auton(void) {
 
 
 void autonomous(void) {
+  Drivetrain.setDriveVelocity(100,vex::velocityUnits::pct);
+  Drivetrain.setTurnVelocity(50,vex::velocityUnits::pct);
+  
+  Drivetrain.driveFor(reverse,85,vex::distanceUnits::cm,true);
+  wait(1000,msec);
+  Drivetrain.turnFor(-40, vex::rotationUnits::deg,true);
+  Drivetrain.driveFor(reverse,20,vex::distanceUnits::cm,true);
+
+  
+  // Drivetrain.turnFor(90, vex::rotationUnits::deg,true);
+  // Drivetrain.setDriveVelocity(50,vex::velocityUnits::pct);
+  // Drivetrain.driveFor(10, vex::distanceUnits::cm,true);
+
+
+
   /*---------------------------------------------------------------------------*/
   /*                        Offensive Zone(left)                               */
   /*---------------------------------------------------------------------------*/
