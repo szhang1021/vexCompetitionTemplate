@@ -46,7 +46,7 @@ void autonomous(void) {
   wait(1000,msec);
   // Drivetrain.turnFor(-30, vex::rotationUnits::deg,true);
   Drivetrain.driveFor(forward,10,vex::distanceUnits::cm,true);
-  Drivetrain.driveFor(reverse,10,vex::distanceUnits::cm,true);
+  Drivetrain.driveFor(reverse,15,vex::distanceUnits::cm,true);
   Drivetrain.driveFor(forward,20,vex::distanceUnits::cm,true);
 
 
